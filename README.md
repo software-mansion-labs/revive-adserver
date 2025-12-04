@@ -55,10 +55,6 @@ Inventory → Zones → Invocation Code → Select “Async JS (Stealth Mode)”
 * Publishes the loader under the friendly name `contentAsync` instead of `reviveAsync`.
 * Routes all requests through `.htaccess` into internal loader scripts that map the disguised URLs back to Revive’s delivery logic.
 
----
-
-If you want it even shorter or more technical, I can tune it further.
-
 
 # Revive Adserver
 #### The world's most popular free, open source ad serving system
