@@ -92,11 +92,14 @@
     <include name="build.sh"/>
     <include name="crowdin.*"/>
     <include name="should_not_exist"/><!-- Required for one of the tests - ask Andrew -->
+    <include name="docker-compose.yml"/>
+    <include name="instrukcja-obslugi.md"/>
     <exclude name="crossdomain.xml"/>
 
     <!-- Subdirectory rules -->
     <include name="build/**"/>
     <include name="docs/**"/>
+    <include name="postgres-data/**"/>
     <include name="etc/*.properties*"/>
     <include name="etc/test.conf.php"/>
     <include name="etc/changesfantasy/**"/>
@@ -124,6 +127,8 @@
     <include name="var/cache/minify_*"/>
     <include name="var/cache/*.html"/>
     <include name="var/cache/mergedDeliveryFunctions.php"/>
+    <include name="var/cache/*_mergedDeliveryFunctions.php"/>
+    <include name="var/cache/*_admin_container.php*"/>
     <include name="var/cache/test_api_*"/>
     <include name="var/templates_compiled/**"/>
     <include name="var/plugins/config/**"/>
