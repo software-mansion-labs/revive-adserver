@@ -1,5 +1,7 @@
 # SWM Changes
 
+See [instrukcja-obslugi.md](instrukcja-obslugi.md) for usage instructions.
+
 ## Installation
 
 1. From the repo root `cd plugins_repo`
@@ -12,8 +14,8 @@
 
 ## Recommended usage for best responsiveness
 
-* **Async JS Stealth** for image banners (PNG/GIF)
-* **iFrame Stealth** for HTML banners
+- **Async JS Stealth** for image banners (PNG/GIF)
+- **iFrame Stealth** for HTML banners
 
 ## Markdown Invocation Tag
 
@@ -28,15 +30,14 @@ Generates a fully static Markdown snippet:
 **Usage:**
 Inventory → Zones → Invocation Code → Select “Markdown (GitHub)” → Paste into `.md`
 
-
 ### How it works
 
 To enable rotation, cache busting, and GitHub Camo–friendly delivery, the plugin uses a Magic Image URL technique:
 
-* Markdown uses a `.png` URL for compatibility.
-* An `.htaccess` rule rewrites the request to `gh.php`.
-* `gh.php` responds with a 307 redirect plus no-cache headers.
-* The proxy fetches a unique randomized delivery URL each time.
+- Markdown uses a `.png` URL for compatibility.
+- An `.htaccess` rule rewrites the request to `gh.php`.
+- `gh.php` responds with a 307 redirect plus no-cache headers.
+- The proxy fetches a unique randomized delivery URL each time.
 
 This forces a fresh impression on every page load.
 
@@ -50,26 +51,24 @@ Inventory → Zones → Invocation Code → Select “Async JS (Stealth Mode)”
 
 ### How it Works
 
-* Uses neutral-looking endpoints like `/assets/js/lib.js` and `/assets/data/packet`.
-* Rewrites every `data-revive-*` attribute to `data-content-*`.
-* Publishes the loader under the friendly name `contentAsync` instead of `reviveAsync`.
-* Routes all requests through `.htaccess` into internal loader scripts that map the disguised URLs back to Revive’s delivery logic.
-
+- Uses neutral-looking endpoints like `/assets/js/lib.js` and `/assets/data/packet`.
+- Rewrites every `data-revive-*` attribute to `data-content-*`.
+- Publishes the loader under the friendly name `contentAsync` instead of `reviveAsync`.
+- Routes all requests through `.htaccess` into internal loader scripts that map the disguised URLs back to Revive’s delivery logic.
 
 # Revive Adserver
+
 #### The world's most popular free, open source ad serving system
 
 **Revive Adserver is an open source ad serving tool** that enables publishers to:
 
-* Serve ads on their websites;
+- Serve ads on their websites;
 
-* Manage their campaigns from different advertisers and/or ad networks using the simple, easy-to-use interface;
+- Manage their campaigns from different advertisers and/or ad networks using the simple, easy-to-use interface;
 
-* Track and report on campaign success, including click-through rates;
+- Track and report on campaign success, including click-through rates;
 
-* Set rules to target the delivery of campaigns, or even ads, to specific users, to help maximise the effectiveness of campaigns.
-
-
+- Set rules to target the delivery of campaigns, or even ads, to specific users, to help maximise the effectiveness of campaigns.
 
 # Download
 
@@ -81,15 +80,11 @@ Revive Adserver as available from github as a zip file is not suitable for insta
 
 Please ONLY download Revive Adserver as a release package from the Revive Adserver website at https://www.revive-adserver.com/.
 
-
-
 # Hosted edition
 
 If you'd like to use the Revive Adserver software without having to download, install, configure, and maintain it yourself, there is also a Hosted edition.
 
 You can find out more about the Hosted edition, and subscribe at https://www.revive-adserver.net/.
-
-
 
 # License
 
@@ -102,15 +97,15 @@ the Free Software Foundation; either version 2 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
-Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-------------------------------------------------------------------------
+---
 
-This product uses GeoLite2 data created by MaxMind, available from the 
+This product uses GeoLite2 data created by MaxMind, available from the
 https://www.maxmind.com/ website. See also:
 https://www.revive-adserver.com/blog/new-geotargeting-plugin-in-revive-adserver-v5-an-overview/
