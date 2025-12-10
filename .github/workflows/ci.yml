@@ -158,6 +158,8 @@ jobs:
     runs-on: ubuntu-24.04
     outputs:
       next: skip
+    steps:
+      - run: echo "post-commit skipped"
 
   trigger-tests:
     name: Trigger tests

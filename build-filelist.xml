@@ -86,6 +86,10 @@
     <include name="phpcs.xml.dist"/>
     <include name="rector.php"/>
     <include name="tests.xsl"/>
+    <include name=".dockerignore"/>
+    <include name="Dockerfile"/>
+    <include name="docker/**"/>
+    <include name="docker-entrypoint.sh"/>
     <include name="*.xml"/>
     <include name="*.properties"/>
     <include name="*.properties.example"/>
