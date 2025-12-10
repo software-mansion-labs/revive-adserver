@@ -47,10 +47,8 @@ jobs:
         run: |
           if [ -n "${{ github.event.inputs.version }}" ]; then
             VERSION="${{ github.event.inputs.version }}"
-          elif [ -n "${{ github.ref_name }}" ] && [[ "${{ github.ref_name }}" == v* ]]; then
-            VERSION="${GITHUB_REF_NAME#v}"
           else
-            VERSION="dev-$(date +%Y%m%d)-${GITHUB_SHA::8}"
+            VERSION="latest"
           fi
           echo "version=${VERSION}" >> $GITHUB_OUTPUT
           echo "Using version: ${VERSION}"
