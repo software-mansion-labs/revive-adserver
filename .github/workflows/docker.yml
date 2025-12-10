@@ -106,12 +106,11 @@ jobs:
             REGISTRY="registry.swmansion.com/devops/custom-docker-images"
           fi
 
-          # Default image name based on repo, or allow override
+          # Image name: prefer secret override, else fixed 'revive-adserver'
           if [ -n "${{ secrets.GITLAB_IMAGE_NAME }}" ]; then
             IMAGE_NAME="${{ secrets.GITLAB_IMAGE_NAME }}"
           else
-            # Try to infer from repo
-            IMAGE_NAME="${GITHUB_REPOSITORY,,}"
+            IMAGE_NAME="revive-adserver"
           fi
 
           FULL_IMAGE="${REGISTRY}/${IMAGE_NAME}"
