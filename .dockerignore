@@ -6,6 +6,8 @@
 !README.md
 postgres-data
 build
+!build/test-results/*.tar.gz
+!build/test-results/*.zip
 tests
 plugins_repo
 tutorials

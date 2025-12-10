@@ -4,13 +4,15 @@ on:
   workflow_dispatch:
     inputs:
       version:
+        type: string
         required: false
-        default: latest
-        description: Release version
+        default: "latest"
+        description: "Release version (default: latest)"
       gitlab_registry:
+        type: string
         required: false
-        default: registry.swmansion.com/devops/custom-docker-images
-        description: GitLab Container Registry URL
+        default: "registry.swmansion.com/devops/custom-docker-images"
+        description: "GitLab Container Registry URL (default: SWM registry)"
       push_image:
         type: boolean
         default: true
