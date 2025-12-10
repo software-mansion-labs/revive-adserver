@@ -1,0 +1,19 @@
+#!/bin/sh
+set -e
+
+chown -R nginx:www-data /var/www/html/var || true
+chmod -R 777 /var/www/html/var || true
+chmod -R 777 /var/www/html/www/images || true
+chmod -R 777 /var/www/html/plugins || true
+
+if [ -n "$DB_HOST" ]; then
+    echo "Waiting for database to be ready..."
+    until nc -z "$DB_HOST" "${DB_PORT:-5432}" 2>/dev/null; do
+        echo "Database is unavailable - sleeping"
+        sleep 1
+    done
+    echo "Database is up - continuing"
+fi
+
+exec "$@"
+
