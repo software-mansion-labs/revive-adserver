@@ -6,11 +6,11 @@ on:
       version:
         required: false
         default: latest
-        description: Release version (default: latest)
+        description: Release version
       gitlab_registry:
         required: false
         default: registry.swmansion.com/devops/custom-docker-images
-        description: GitLab Container Registry URL (default: SWM registry)
+        description: GitLab Container Registry URL
       push_image:
         type: boolean
         default: true
