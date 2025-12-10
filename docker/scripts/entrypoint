@@ -4,6 +4,7 @@ set -e
 chown -R nginx:www-data /var/www/html/var || true
 chmod -R 777 /var/www/html/var || true
 chmod -R 777 /var/www/html/www/images || true
+chmod -R 777 /var/www/html/www/admin/plugins || true
 chmod -R 777 /var/www/html/plugins || true
 
 if [ -n "$DB_HOST" ]; then

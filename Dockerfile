@@ -1,12 +1,30 @@
 FROM php:8.2-fpm-alpine3.19
 
-# Install system dependencies (nginx + supervisor + tools)
+# Install system dependencies and build deps for PHP extensions
 RUN apk add --no-cache \
     nginx \
     supervisor \
     tzdata \
     netcat-openbsd \
-    unzip
+    unzip \
+    $PHPIZE_DEPS \
+    libzip-dev \
+    zlib-dev \
+    icu-dev \
+    oniguruma-dev \
+    libxml2-dev \
+    postgresql-dev \
+    mariadb-connector-c-dev \
+    curl-dev
+
+# Install required PHP extensions
+RUN docker-php-ext-install \
+    zip \
+    intl \
+    pdo_mysql \
+    pdo_pgsql \
+    mysqli \
+    pgsql
 
 # Set working directory
 WORKDIR /var/www/html
@@ -61,6 +79,7 @@ RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 777 /var/www/html/var \
     && chmod -R 777 /var/www/html/www/images \
     && chmod -R 777 /var/www/html/var/plugins \
+    && chmod -R 777 /var/www/html/www/admin/plugins \
     && chown -R www-data:www-data /var/cache/nginx /run/nginx /run/php-fpm
 
 EXPOSE 80
