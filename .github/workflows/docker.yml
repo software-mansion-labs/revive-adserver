@@ -147,3 +147,5 @@ jobs:
             PACKAGE_PATH=${{ steps.package.outputs.package }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          provenance: false
+          sbom: false
