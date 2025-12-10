@@ -12,8 +12,6 @@ tutorials
 docker-compose.yml
 Dockerfile
 .dockerignore
-docker/scripts/entrypoint
-docker/scripts/start
 *.log
 var/cache/*
 var/templates_compiled/*
