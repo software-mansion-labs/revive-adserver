@@ -33,6 +33,9 @@
     ./version_bump.sh "$arg" "$PLUGIN_GROUP_NAME"
   fi
 
+  # refresh timestamps before packaging
+  find "$arg" -exec touch {} +
+
   rm -f "$arg".zip
 
   cd "$arg"
