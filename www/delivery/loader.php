@@ -39,9 +39,20 @@ if (!file_exists($scriptPath)) {
 
 // Handle CORS preflight requests and set CORS headers
 if ($type === 'data') {
+    // Resolve origin: prefer Origin header, fallback to Referer host
+    $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+    if (empty($origin) && !empty($_SERVER['HTTP_REFERER'])) {
+        $parsed = parse_url($_SERVER['HTTP_REFERER']);
+        if (!empty($parsed['scheme']) && !empty($parsed['host'])) {
+            $origin = $parsed['scheme'] . '://' . $parsed['host'] . (empty($parsed['port']) ? '' : ':' . $parsed['port']);
+        }
+    }
+
+    $isValidOrigin = !empty($origin) && preg_match('#^(https?://|null$)#', $origin);
+
     if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-        if (!empty($_SERVER['HTTP_ORIGIN']) && preg_match('#https?://#', $_SERVER['HTTP_ORIGIN'])) {
-            header("Access-Control-Allow-Origin: " . $_SERVER['HTTP_ORIGIN']);
+        if ($isValidOrigin) {
+            header("Access-Control-Allow-Origin: " . $origin);
             header("Access-Control-Allow-Credentials: true");
             header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
             header("Access-Control-Allow-Headers: Content-Type");
@@ -54,8 +65,8 @@ if ($type === 'data') {
     // Set CORS headers for actual requests (BEFORE requiring the script)
     // asyncspc.php sets CORS headers, but we need to set them before it runs
     // to ensure they're properly sent
-    if (!empty($_SERVER['HTTP_ORIGIN']) && preg_match('#https?://#', $_SERVER['HTTP_ORIGIN'])) {
-        header("Access-Control-Allow-Origin: " . $_SERVER['HTTP_ORIGIN']);
+    if ($isValidOrigin) {
+        header("Access-Control-Allow-Origin: " . $origin);
         header("Access-Control-Allow-Credentials: true");
     }
 }
